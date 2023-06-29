@@ -1,49 +1,51 @@
-import praw
 import os
-import time
 from datetime import datetime, timezone
+
 from praw.exceptions import RedditAPIException
 
+from authentication import *
+from welcome import *
 
-def delete_posts_and_comments():
-    username = os.environ['REDDIT_USERNAME']
-    days_threshold = os.environ.get('REDDIT_DELETE_THRESHOLD', 365)  # default to deleting anything older than a year
-    threshold = int(datetime.now(timezone.utc).timestamp()) - days_threshold * 24 * 60 * 60
+from deleteCommentsFromSub import DCS
+from deleteCommentsBeforeDate import DCBD
+from deleteCommentsAfterDate import DCAD
 
-    reddit = praw.Reddit(
-        client_id=os.environ['REDDIT_CLIENT_ID'],
-        client_secret=os.environ['REDDIT_CLIENT_SECRET'],
-        password=os.environ['REDDIT_PASSWORD'],
-        username=username,
-        user_agent=os.environ['REDDIT_USER_AGENT']
-    )
+from deletePostsFromSub import DPS
+from deletePostsBeforeDate import DPBD
+from deletePostsAfterDate import DPAD
 
-    user = reddit.redditor(username)
+while True:
+    display_menu()
+    user_choice = get_user_choice()
 
-    print(f"Iterating over {user.name} posts and comments")
-
-    try:
-        for submission in user.submissions.new():
-            if submission.created_utc <= threshold:
-                print(f"Deleting post {submission.id}")
-                submission.delete()
-
-                # to avoid rate limit errors, wait for 1 second between each delete operation
-                time.sleep(1)
-    except RedditAPIException as e:
-        print(f"Reddit API Exception raised while deleting posts: [{e.error_type}: {e.message}]")
-
-    try:
-        for comment in user.comments.new():
-            if comment.created_utc <= threshold:
-                print(f"Deleting comment {comment.id}")
-                comment.delete()
-
-                # to avoid rate limit errors, wait for 1 second between each delete operation
-                time.sleep(1)
-    except RedditAPIException as e:
-        print(f"Reddit API Exception raised while deleting comments: [{e.error_type}: {e.message}]")
-
-
-if __name__ == '__main__':
-    delete_posts_and_comments()
+    if user_choice == "1":
+        print('YOU SELECTD: "Delete all your Comments from a particular Subreddit."')
+        DCS()
+        break
+    elif user_choice == "2":
+        print('YOU SELECTD: "Delete all your Posts from a particular Subreddit"')
+        DPS()
+        break
+    elif user_choice == "3":
+        print('YOU SELECTD: "Delete all your Comments before a particular Date"')
+        DCBD()
+        break
+    elif user_choice == "4":
+        print('YOU SELECTD: "Delete all your Posts before a particular Date"')
+        DPBD()
+        break
+    elif user_choice == "5":
+        print('YOU SELECTD: "Delete all your Comments after a particular Date"')
+        DCAD()
+        break
+    elif user_choice == "6":
+        print('YOU SELECTD: "Delete all your Posts after a particular Date"')
+        DPAD()
+        break
+    elif user_choice == "7":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("Quitting the program...")
+        break
+    else:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("Invalid choice. Please try again.")

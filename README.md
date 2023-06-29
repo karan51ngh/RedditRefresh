@@ -10,30 +10,24 @@ given time threshold.
 2. Install the required packages: `pip install -r requirements.txt`
 3. Go to [https://www.reddit.com/prefs/apps](https://www.reddit.com/prefs/apps) and create a new "script" type
    application. You can name it whatever you like and set the description and about url to anything you want.
-4. Set the following environment variables with your Reddit account information:
+4. Open `authentication.py` in a text editor and edit the follwing information:
 
-```shell
-REDDIT_CLIENT_ID=<your_client_id>
-REDDIT_CLIENT_SECRET=<your_client_secret>
-REDDIT_USERNAME=<your_reddit_username>
-REDDIT_PASSWORD=<your_reddit_password>
-REDDIT_USER_AGENT=<your_user_agent>
+```
+CLIENT_ID = "<your_client_id>"
+CLIENT_SECRET = "<your_client_secret>"
+PASSWORD = "<your_account_password>"
+USER_AGENT = "<your script's name (by u/your_username)>"
+USERNAME = "<your_username>"
 ```
 
 You got the `client_id` and `client_secret` on previous step by creating the app. For the user_agent, you can use any
 string that identifies your script.
 
-5. (Optional) Set the `REDDIT_DELETE_THRESHOLD` environment variable to specify the number of days before which posts
-   and comments will be deleted. By default, anything older than a year will be deleted.
+5. Run the script:
 
 ```shell
-REDDIT_DELETE_THRESHOLD=365
-```
-
-6. Run the script:
-
-```shell
-python delete_posts_and_comments.py
+cd reddit-cleaner
+python main.py
 ```
 
 ## Acknowledgments
