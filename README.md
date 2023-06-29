@@ -25,7 +25,7 @@ string that identifies your script.
 5. Run the script:
 
 ```shell
-cd reddit-cleaner
+cd RedditRefresh
 python main.py
 ```
 
