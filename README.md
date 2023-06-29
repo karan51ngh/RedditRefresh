@@ -30,6 +30,6 @@ python main.py
 ```
 
 ## Acknowledgments
-This script is a form of [JosemyDuarte's reddit-cleaner](https://github.com/JosemyDuarte/reddit-cleaner).
+This script is a fork of [JosemyDuarte's reddit-cleaner](https://github.com/JosemyDuarte/reddit-cleaner).
 
 
