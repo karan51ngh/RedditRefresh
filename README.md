@@ -1,12 +1,11 @@
 # Reddit Post and Comment Deleter
 
-This script allows you to delete your old Reddit posts and comments automatically.
-It uses the [PRAW (Python Reddit API Wrapper)](https://github.com/praw-dev/praw) library to access the Reddit API and delete posts and comments based on a
-given time threshold.
+This script allows you to mass-delete your old Reddit posts and comments.
+It uses the [PRAW (Python Reddit API Wrapper)](https://github.com/praw-dev/praw) library to access the Reddit API and delete posts and comments based on a particular sub-reddit you posted to, or on a given time threshold.
 
 ## Usage
 
-1. Clone the repository: `git clone https://github.com/JosemyDuarte/reddit-cleaner.git`
+1. Clone the repository: `git clone https://github.com/karan51ngh/RedditRefresh.git`
 2. Install the required packages: `pip install -r requirements.txt`
 3. Go to [https://www.reddit.com/prefs/apps](https://www.reddit.com/prefs/apps) and create a new "script" type
    application. You can name it whatever you like and set the description and about url to anything you want.
@@ -31,6 +30,6 @@ python main.py
 ```
 
 ## Acknowledgments
-This script was inspired by [Adrian Tombu's Twitter cleaning script](https://github.com/adriantombu/twitter-cleaning). Although for me, it was enough running it locally, so there is no Github Actions cron.
+This script is a form of [JosemyDuarte's reddit-cleaner](https://github.com/JosemyDuarte/reddit-cleaner).
 
 
