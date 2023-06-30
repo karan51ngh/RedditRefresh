@@ -1,18 +1,8 @@
 import os
-from datetime import datetime, timezone
-
-from praw.exceptions import RedditAPIException
 
 from authentication import *
 from welcome import *
-
-from deleteCommentsFromSub import DCS
-from deleteCommentsBeforeDate import DCBD
-from deleteCommentsAfterDate import DCAD
-
-from deletePostsFromSub import DPS
-from deletePostsBeforeDate import DPBD
-from deletePostsAfterDate import DPAD
+from delete import delete
 
 while True:
     display_menu()
@@ -20,27 +10,27 @@ while True:
 
     if user_choice == "1":
         print('YOU SELECTD: "Delete all your Comments from a particular Subreddit."')
-        DCS()
+        delete(True, True, None)
         break
     elif user_choice == "2":
         print('YOU SELECTD: "Delete all your Posts from a particular Subreddit"')
-        DPS()
+        delete(True, False, None)
         break
     elif user_choice == "3":
         print('YOU SELECTD: "Delete all your Comments before a particular Date"')
-        DCBD()
+        delete(False, True, True)
         break
     elif user_choice == "4":
         print('YOU SELECTD: "Delete all your Posts before a particular Date"')
-        DPBD()
+        delete(False, False, True)
         break
     elif user_choice == "5":
         print('YOU SELECTD: "Delete all your Comments after a particular Date"')
-        DCAD()
+        delete(False, True, False)
         break
     elif user_choice == "6":
         print('YOU SELECTD: "Delete all your Posts after a particular Date"')
-        DPAD()
+        delete(False, False, False)
         break
     elif user_choice == "7":
         os.system('cls' if os.name == 'nt' else 'clear')

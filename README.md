@@ -29,7 +29,16 @@ cd RedditRefresh
 python main.py
 ```
 
+## Options
+
+Currently you get 6 options on how to proceede with the deletion of your Posts/Comments:
+
+1. Delete all your **Comments** from a particular **Subreddit**.
+2. Delete all your **Posts** from a particular **Subreddit**.
+3. Delete all your **Comments before** a particular **Date**.
+4. Delete all your **Posts before** a particular **Date**.
+5. Delete all your **Comments after** a particular **Date**.
+6. Delete all your **Posts after** a particular **Date**.
+
 ## Acknowledgments
 This script is a fork of [JosemyDuarte's reddit-cleaner](https://github.com/JosemyDuarte/reddit-cleaner).
-
-
