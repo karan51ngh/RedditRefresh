@@ -1,7 +1,8 @@
 # Reddit Post and Comment Deleter
 
-This script allows you to mass-delete your old Reddit posts and comments.
-It uses the [PRAW (Python Reddit API Wrapper)](https://github.com/praw-dev/praw) library to access the Reddit API and delete posts and comments based on a particular sub-reddit you posted to, or on a given time threshold.
+- This script allows you to mass-delete your old Reddit posts or comments.
+- It encrypts your posts or comments using SHA-256 encryption algorithm before deletion to prevent Reddit from restoring your posts or comments after your account is deleted.
+- It uses the [PRAW (Python Reddit API Wrapper)](https://github.com/praw-dev/praw) library to access the Reddit API and delete posts and comments based on a particular sub-reddit you posted to, or on a given time threshold.
 
 ## Usage
 
@@ -28,6 +29,7 @@ string that identifies your script.
 cd RedditRefresh
 python main.py
 ```
+6. It creates a file called `LOGS.md` that saves all your comments and posts before deletion.
 
 ## Options
 
