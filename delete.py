@@ -8,7 +8,7 @@ from askDate import ask_for_date
 from manageText import manageText
 
 
-def delete(flag_SubDate, flag_commentsPosts, flag_beforeAfter):
+def delete(flag_SubDate, flag_commentsPosts, flag_beforeAfter, flag_deleteAndEdit):
     reddit = praw.Reddit(
         client_id=CLIENT_ID,
         client_secret=CLIENT_SECRET,
@@ -51,7 +51,8 @@ def delete(flag_SubDate, flag_commentsPosts, flag_beforeAfter):
                         print(f"HASH: {hashed_text}")
                         comment.edit(hashed_text)
                         time.sleep(2)
-                        comment.delete()
+                        if flag_deleteAndEdit:
+                            comment.delete()
                         time.sleep(2)
                 file.write("\n---\n")
                 file.close()
@@ -72,7 +73,8 @@ def delete(flag_SubDate, flag_commentsPosts, flag_beforeAfter):
                         if submission.selftext != "":
                             submission.edit(hashed_text)
                             time.sleep(2)
-                        submission.delete()
+                        if flag_deleteAndEdit:
+                            submission.delete()
                         time.sleep(2)
                 file.write("\n---\n")
                 file.close()
@@ -96,7 +98,8 @@ def delete(flag_SubDate, flag_commentsPosts, flag_beforeAfter):
                             print(f"HASH: {hashed_text}")
                             comment.edit(hashed_text)
                             time.sleep(2)
-                            comment.delete()
+                            if flag_deleteAndEdit:
+                                comment.delete()
                             time.sleep(2)
                     file.write("\n---\n")
                     file.close()
@@ -117,7 +120,8 @@ def delete(flag_SubDate, flag_commentsPosts, flag_beforeAfter):
                             print(f"HASH: {hashed_text}")
                             comment.edit(hashed_text)
                             time.sleep(2)
-                            comment.delete()
+                            if flag_deleteAndEdit:
+                                comment.delete()
                             time.sleep(2)
                     file.write("\n---\n")
                     file.close()
@@ -140,7 +144,8 @@ def delete(flag_SubDate, flag_commentsPosts, flag_beforeAfter):
                             if submission.selftext != "":
                                 submission.edit(hashed_text)
                                 time.sleep(2)
-                            submission.delete()
+                            if flag_deleteAndEdit:
+                                submission.delete()
                             time.sleep(2)
                     file.write("\n---\n")
                     file.close()
@@ -162,7 +167,8 @@ def delete(flag_SubDate, flag_commentsPosts, flag_beforeAfter):
                             if submission.selftext != "":
                                 submission.edit(hashed_text)
                                 time.sleep(2)
-                            submission.delete()
+                            if flag_deleteAndEdit:
+                                submission.delete()
                             time.sleep(2)
                     file.write("\n---\n")
                     file.close()
