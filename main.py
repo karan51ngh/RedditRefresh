@@ -14,37 +14,37 @@ delete_and_edit = get_user_selected_mode()
 
 while True:
 
-    display_menu("Delete" if delete_and_edit else "Encrypt")
+    display_menu("Delete" if delete_and_edit else "Hash")
     user_choice = get_user_choice()
 
     if user_choice == "1":
         print(
-            f'YOU SELECTD: "{"Delete" if delete_and_edit else "Encrypt"} all your Comments from a particular Subreddit."')
+            f'YOU SELECTD: "{"Delete" if delete_and_edit else "Hash"} all your Comments from a particular Subreddit."')
         delete(True, True, None, delete_and_edit)
         break
     elif user_choice == "2":
         print(
-            f'YOU SELECTD: "{"Delete" if delete_and_edit else "Encrypt"} all your Posts from a particular Subreddit"')
+            f'YOU SELECTD: "{"Delete" if delete_and_edit else "Hash"} all your Posts from a particular Subreddit"')
         delete(True, False, None, delete_and_edit)
         break
     elif user_choice == "3":
         print(
-            f'YOU SELECTD: "{"Delete" if delete_and_edit else "Encrypt"} all your Comments before a particular Date"')
+            f'YOU SELECTD: "{"Delete" if delete_and_edit else "Hash"} all your Comments before a particular Date"')
         delete(False, True, True, delete_and_edit)
         break
     elif user_choice == "4":
         print(
-            f'YOU SELECTD: "{"Delete" if delete_and_edit else "Encrypt"} all your Posts before a particular Date"')
+            f'YOU SELECTD: "{"Delete" if delete_and_edit else "Hash"} all your Posts before a particular Date"')
         delete(False, False, True, delete_and_edit)
         break
     elif user_choice == "5":
         print(
-            f'YOU SELECTD: "{"Delete" if delete_and_edit else "Encrypt"} all your Comments after a particular Date"')
+            f'YOU SELECTD: "{"Delete" if delete_and_edit else "Hash"} all your Comments after a particular Date"')
         delete(False, True, False, delete_and_edit)
         break
     elif user_choice == "6":
         print(
-            f'YOU SELECTD: "{"Delete" if delete_and_edit else "Encrypt"} all your Posts after a particular Date"')
+            f'YOU SELECTD: "{"Delete" if delete_and_edit else "Hash"} all your Posts after a particular Date"')
         delete(False, False, False, delete_and_edit)
         break
     elif user_choice == "7":
