@@ -17,7 +17,7 @@ def delete(flag_SubDate, flag_commentsPosts, flag_beforeAfter, flag_deleteAndEdi
         username=USERNAME
     )
 
-    file = open("LOGS.md", "a+")
+    file = open("LOGS.md", "a+", encoding="utf-8")
     if os.path.getsize("LOGS.md") != 0:
         file.write("\n---\n")
         current_time = datetime.datetime.now()
