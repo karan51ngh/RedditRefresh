@@ -45,4 +45,4 @@ python main.py
 
 ## Acknowledgments
 
-This script is a fork of [JosemyDuarte's reddit-cleaner](https://github.com/JosemyDuarte/reddit-cleaner).
+This script was forked from [JosemyDuarte's reddit-cleaner](https://github.com/JosemyDuarte/reddit-cleaner).
