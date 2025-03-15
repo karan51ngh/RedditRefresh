@@ -7,3 +7,5 @@ requests==2.29.0
 update-checker==0.18.0
 urllib3==1.26.15
 websocket-client==1.5.1
+pycrypto==2.6.1
+pycryptodome==3.21.0

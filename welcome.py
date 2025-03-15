@@ -2,6 +2,8 @@ def display_comment_or_delete_menu():
     print("Select a mode")
     print("1. DELETE (this option will first HASH your content and then DELETE)")
     print("2. HASH (this option will only HASH your content)")
+    print("3. ENCRYPT ((this option will first ENCRYPT your content. You can DECRYPT your content in the future.)")
+    print("4. DECRYPT ((this option will first DECRYPT your ENCRPTED content.)")
 
 
 def get_user_selected_mode():
