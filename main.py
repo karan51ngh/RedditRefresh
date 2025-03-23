@@ -1,25 +1,29 @@
 import os
 from authentication import *
 from utils import *
+from RedditRefresh import RedditRefresh
 
+def main():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("Welcome to RedditRefresh!\n")
 
-os.system('cls' if os.name == 'nt' else 'clear')
-print("Welcome to RedditRefresh!\n")
+    user_mode = display_mode_menu()
+    user_content = diplay_content_menu()
 
-user_mode = display_mode_menu()
-user_content = diplay_content_menu()
-user_criteria = diplay_criteria_options()
-criteria_subreddit = ''
-criteria_date = ''
-before_after_date = ''
+    criteria_subreddit = ''
+    criteria_from_date = ''
+    criteria_to_date = ''
 
-if user_criteria == "SUBREDDIT":
     criteria_subreddit = askForSubReddit()
-else:
-    criteria_date = askForDate()
-    before_after_date = askBeforeAfter(criteria_date)
+    criteria_from_date = askFromDate()
+    criteria_to_date = askToDate(criteria_from_date)
 
-confirmation = True if askForConfirmation(user_mode) == 1 else False
+    confirmation = True if askForConfirmation(user_mode) == 1 else False
+    if confirmation:
+        redditRefresh = RedditRefresh(user_mode, user_content, criteria_subreddit, criteria_from_date, criteria_to_date)
+        redditRefresh.executeQuery()
+    else:
+        main()
 
-if(confirmation):
-    print("Thanks for using RedditRefresh by karan51ngh\n")
+if __name__ == "__main__":
+    main()
