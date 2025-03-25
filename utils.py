@@ -27,7 +27,7 @@ def diplay_content_menu():
 
 def askFromDate():
     try:
-        date_input = input("Please enter 'From Date' (YYYY-MM-DD).\n(Leave this Empty if you want the 'From Date' to be indefinite.): ")
+        date_input = input("Please enter 'From Date'.\n(Leave this Empty if you want the 'From Date' to be indefinite.) (YYYY-MM-DD): ")
         if date_input == '':
             print('')
             return datetime.datetime.strptime("1986-11-08", "%Y-%m-%d")
@@ -38,15 +38,15 @@ def askFromDate():
     except ValueError:
         print("Invalid date format. Please try again.\n")
         return askFromDate()
-    
+
 def askToDate(fromDate):
     try:
-        date_input = input("Please enter 'To Date' (YYYY-MM-DD).\n(Leave this Empty if you want the 'To Date' to be indefinite.): ")
+        date_input = input("Please enter 'To Date'.\n(Leave this Empty if you want the 'To Date' to be indefinite.) (YYYY-MM-DD): ")
 
         if date_input == '':
             today = datetime.date.today()
             print('')
-            return datetime.datetime.strptime(str(today), "%Y-%m-%d")
+            return datetime.datetime.strptime(str(today + datetime.timedelta(days=1)), "%Y-%m-%d")
 
         toDate = datetime.datetime.strptime(date_input, "%Y-%m-%d")
         if toDate < fromDate:
@@ -60,7 +60,7 @@ def askToDate(fromDate):
         return askToDate(fromDate)
 
 def askForSubReddit():
-    subreddit_name = input("Enter Subbredit Name: (Leave this Empty if you don't want it to be a criteria.)")
+    subreddit_name = input("Enter Subbredit Name.\n(Leave this Empty if you don't want it to be a criteria.): ")
     if subreddit_name != '':
         print(f"You chose the SubReddit as'{subreddit_name}'. Do you want to proceed with this SubReddit?")
     else:
