@@ -17,7 +17,9 @@ PASSWORD = "<your_account_password>"
 USER_AGENT = "<your script's name (by u/your_username)>"
 USERNAME = "<your_username>"
 ```
-For Help with the above step refer [this](https://i.imgur.com/31TI2XA.png) image.
+For Help with the above step refer the following image:
+
+![NoNoise LinkedIn Logo](https://raw.githubusercontent.com/karan51ngh/RedditRefresh/master/assets/redditrefreshasset.png)
 
 5. Run the script:
 
