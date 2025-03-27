@@ -11,7 +11,6 @@ from aesEncryptDecrypt import aesEncrypt, aesDecrypt
 class RedditRefresh:
     def __init__(self, user_mode, user_content, criteria_subreddit, criteria_from_date, criteria_to_date):
         self.redditInit()
-        self.fileInit()
         self.user = self.reddit.redditor(USERNAME)
         self.user_mode = user_mode
         self.user_content = user_content
@@ -35,7 +34,7 @@ class RedditRefresh:
     def fileInit(self):
         self.file = open("LOGS.md", "a+", encoding="utf-8")
         if os.path.getsize("LOGS.md") == 0:
-            print("No Previously stored Logs found. Creating a new LOGS.md...")
+            print("No Previously stored Logs found. Creating a new log file: LOGS.md...")
             self.file.write(
                 "# Logs of using [RedditRefresh](https://github.com/karan51ngh/RedditRefresh)\n")
         
@@ -46,11 +45,15 @@ class RedditRefresh:
         self.file.write(log_message)
 
     def fileEnd(self):
-        self.file.write("\n---\n")
-        self.file.write(
-                "# Thank you for using [RedditRefresh](https://github.com/karan51ngh/RedditRefresh).\n"
-                "Consider giving us a star.")
-        self.file.close()
+        try:
+            self.file.write("\n---\n")
+            self.file.write(
+                    "# Thank you for using [RedditRefresh](https://github.com/karan51ngh/RedditRefresh).\n"
+                    "Consider giving us a star.")
+            self.file.close()
+        except AttributeError:
+            pass
+        print("Thank you for using RedditRefresh : (https://github.com/karan51ngh/RedditRefresh).\n Consider giving us a star.")
 
     def managePosts(self):
         SUB = self.criteria_subreddit
@@ -68,6 +71,8 @@ class RedditRefresh:
                 if SUB != '' and submission.subreddit.display_name.lower() != SUB.lower():
                    continue
                 if not (submission.created_utc >= FROM_DATE.timestamp() and submission.created_utc <= TO_DATE.timestamp()):
+                    continue
+                if submission.selftext == '' and MODE != 'DELETE':
                     continue
                 if MODE == 'HASH' or MODE == 'DELETE':
                     hashed_text = hashPost(self.file, submission.title, submission.selftext)
@@ -89,6 +94,7 @@ class RedditRefresh:
                     submission.edit(str(encrypted_text))
                     self.redditRefreshSleep()
                 else:
+                    # MODE == 'DECRYPT'
                     postBody = str(submission.selftext)
                     if postBody.startswith("RR_AES_ENCRYPTED"):
                         postBody = postBody.removeprefix("RR_AES_ENCRYPTED")
@@ -148,6 +154,8 @@ class RedditRefresh:
                 f"Reddit API Exception raised while Processing Comment Content: [{e.error_type}: {e.message}]")
 
     def executeQuery(self):
+        if self.user_mode in ['HASH', 'DELETE']:
+            self.fileInit()
         if self.user_content == 'POST':
                 self.managePosts()
         else:
