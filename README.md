@@ -5,10 +5,11 @@ This script allows you to Mass **Delete**, **Cryptographically Hash**, **Encrypt
 
 ## Setting up the script
 
-1. Clone the repository: `git clone https://github.com/karan51ngh/RedditRefresh.git`
-2. Install the required packages: `pip install -r requirements.txt`
-3. Go to [https://www.reddit.com/prefs/apps](https://www.reddit.com/prefs/apps) and create a new "script" type application. You can name it whatever you like and set the description and about url to anything you want. You can add http://localhost:8080/ as the **redirect uri**. 
-4. Open `authentication.py` in a text editor and edit the following information:
+1. Download the latest release from the [GitHub Releases](https://github.com/karan51ngh/RedditRefresh/releases) and Extract the ZIP file. Or Clone the repository:
+   > `git clone https://github.com/karan51ngh/RedditRefresh.git`
+3. Install the required packages: `pip install -r requirements.txt`
+4. Go to [https://www.reddit.com/prefs/apps](https://www.reddit.com/prefs/apps) and create a new "script" type application. You can name it whatever you like and set the description and about url to anything you want. You can add http://localhost:8080/ as the **redirect uri**. 
+5. Open `authentication.py` in a text editor and edit the following information:
 
 ```
 CLIENT_ID = "<your_client_id>"
