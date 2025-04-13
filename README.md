@@ -1,7 +1,7 @@
 # RedditRefresh
 ## Reddit Bulk Comment/Post Management Tool
 
-This script allows you to Mass **Delete**, **Cryptographically Hash**, **Encrypt** or **Decrypt** your Reddit posts or comments for better privacy and security.
+This script allows you to Bulk **Delete**, **Cryptographically Hash**, **Encrypt** or **Decrypt** your Reddit posts or comments for better privacy and security.
 
 ## Setting up the script
 
